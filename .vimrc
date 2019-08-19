@@ -15,6 +15,8 @@ colorscheme solarized
 let mapleader = "\<Space>"
 nnoremap <leader>ev :vs $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>m z.
+nnoremap <leader>h zt
 
 set nocompatible
 set number
@@ -49,7 +51,8 @@ set fo-=c fo-=r fo-=o
 
 
 " BreakLine: Return TRUE if in the middle of {} or () in INSERT mode
-fun BreakLine()
+" fun! to escape E122 when source .vimrc
+fun! BreakLine()
   if (mode() == 'i')
     return ((getline(".")[col(".")-2] == '{' && getline(".")[col(".")-1] == '}') ||
          \(getline(".")[col(".")-2] == '(' && getline(".")[col(".")-1] == ')'))
