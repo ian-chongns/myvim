@@ -1,16 +1,29 @@
-" pathgen
-execute pathogen#infect()
+" Use of pathogen is replaced by native vim packages
 
 " self-defined
 syntax on
 filetype plugin indent on
 
 " vim-colors-solarized
-syntax enable
+"syntax enable
 set background=dark
 "set background=light
-let g:solarized_termcolors=256
-colorscheme solarized
+"let g:solarized_termcolors=256
+"colorscheme solarized
+
+" vim-indent-guides
+" manually define colors
+colorscheme default
+hi Normal ctermfg=255 guifg=#eeeeee ctermbg=235 guibg=#262626 
+hi CursorLineNr ctermfg=78 guifg=#5fd787 ctermbg=60 guibg=#5f5f87
+hi LineNr ctermfg=69 guifg=#5f87ff ctermbg=233 guibg=#121212
+hi Comment ctermfg=103 guifg=#8787af
+hi Statement ctermfg=208 guifg=#ff8700
+hi Special ctermfg=180 guifg=#d7af87
+hi PreProc ctermfg=72 guifg=#5faf87
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  guibg=#c6c6c6 ctermbg=251
+hi IndentGuidesEven guibg=#9e9e9e ctermbg=247
 
 let mapleader = "\<Space>"
 nnoremap <leader>ev :vs $MYVIMRC<CR>
@@ -69,6 +82,10 @@ inoremap <expr> <CR> BreakLine() ? "<CR><ESC>O" : "<CR>"
 " NERD Tree
 " autocmd vimenter * NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
+
+" vim-latex
+" allows .tex to be identified as ft=tex not ft=plaintex
+let g:tex_flavor='latex'
 
 " allows vimrc in project/.vimrc
 set exrc
